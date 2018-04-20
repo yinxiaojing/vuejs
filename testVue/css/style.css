@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, dl, dt, dd, ol, ul, li, form, table { margin:0; padding:0; border:0; list-style:none;}
+input { margin:0; padding:0; }
+h1,h2,h3,h4,h5,h6 {font-size:12px; font-weight:normal;}
+a,area{blr:expression(this.onFocus=this.blur())}
+a { text-decoration:none;}
+a:hover { text-decoration:underline;}
+.clearfix:after {content:""; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix{zoom:1;}
+.clear{clear:both; height:0; font-size:0;overflow:hidden; line-height:0;}
+.auto{margin-left:auto;margin-right:auto;}
+.fl{float:left;}
+.fr{float:right;}
+.show{display:block!important;}
+.hide{display:none!important;}
+img{vertical-align:middle; *vertical-align: top; }
+html,body{font-family: "微软雅黑";}
+.boxcenter { margin:0 auto; width: 1000px;}
+

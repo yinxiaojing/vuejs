@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/vue.min.js"></script>
+</head>
+
+<body>
+<div id="vue_det">
+   <h1>site:{{site}}</h1>
+   <h1>url:{{url}}</h1>
+   <h1>{{details()}}</h1>
+</div>
+<script>
+var data={site:"教程",url:"http://baidu.com",alexa:"10000"}
+var vm=new Vue({
+  el:'#vue_det',
+  data:data,
+  methods:{
+    details:function(){
+      return this.site+"技术";
+    }
+  }
+})
+document.write(vm.a===data.a);
+document.write("<br>");
+vm.site="rrrr";
+document.write(data.site+"<br>");
+data.alexa=1234;
+document.write(vm.alexa);
+document.write(vm.$data===data);
+document.write(vm.$el===document.getElementById('vue_det'));
+</script>
+
+
+
+<div id="app">
+   <div v-html="message"></div>
+   <label for="r1">修改颜色</label>
+   <input type="checkbox" v-model="class1" id="r1">
+   <br></br>
+   <div v-bind:class="{'class1':class1}">
+directiva v-bind:class
+   </div>
+</div>
+<style>
+.class1{background: #444;color:#eee;}
+</style>
+<script>
+var vm2=new Vue({
+  el:"#app",
+  data:{
+    message:'RUNOOB',
+    class1:true
+  }
+})
+</script>
+
+<div id="app2">
+   {{5+5}}
+   {{ok?'yes':'no'}}
+   {{message.split('').reverse().join('')}}
+   <div v-bind:id="'list-'+id">教程2</div>
+   <p v-if="seen">看到我了</p>
+   <a v-bind:href="url">链接</a>
+ </div>
+ <script>
+ var vm3=new Vue({
+   el:"#app2",
+   data:{
+     message:'RUNOOB',
+     ok:true,
+     id:1,
+     seen:true,
+     url:"http://baodu.com"
+   }
+ })
+ </script>
+</body>
+</html>

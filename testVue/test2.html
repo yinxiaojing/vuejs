@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+  <input v-model="newTodo" v-on:keyup.enter="addTodo">
+  <ul>
+    <li v-for="(todo,index) in todos">
+      <span>{{todo.text}}</span>
+      <button v-on:click="removeTodo(index)">x</button>
+    </li>
+  </ul>
+
+
+<select v-model="selected" multiple>
+  <option v-for="option in options" v-bind:value="option.value">
+{{option.text}}
+  </option>
+</select>
+<span>Selected: {{ selected }}</span>
+
+
+</div>
+
+<script>
+new Vue({
+  el:"#app",
+  data:{
+    newTodo:'',
+    todos:[
+      {text:"add some todos"}
+    ],
+    selected:'a',
+    options:[
+      {text:'one',value:'a'},
+      {text:'two',value:'b'},
+      {text:'three',value:'c'}
+    ]
+  },
+  methods:{
+    addTodo:function(){
+      var text=this.newTodo.trim();
+      if(text){
+        this.todos.push({text:text});
+        this.newTodo=''
+      }
+    },
+    removeTodo:function(index){
+      this.todos.splice(index,1)
+    }
+  }
+})
+</script>
+</body>
+</html>
